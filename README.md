@@ -2,7 +2,7 @@
 
 The Quotebook API JavaScript library provides simple access to Quotebook API for applications written in server-side JavaScript.
 
-Currently, we have a growing database of over 80,000+ quotes. Search by authors and tags and retrieve quotes in bulk or in single quotes.
+Currently, we have a growing database of over 80,000+ quotes from 20,000+ authors. Search by authors and tags to retrieve quotes in bulk or in single quotes.
 
 #### Note: We don't recommend using Quotebook API in client-side JavaScript in the browser because it will leak your API key to the public.
 
