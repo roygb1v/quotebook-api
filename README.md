@@ -8,7 +8,37 @@ Currently, we have a growing database of over 80,000+ quotes. Search by authors 
 
 If you have any questions, please contact helloquotebook@gmail.com.
 
-## How to use
+## Installation
+
+Install the [official NPM package](https://www.npmjs.com/package/quotebook-api) of the Quotebook API:
+
+```
+npm install quotebook-api --save
+# or
+yarn add quotebook-api
+```
+
+## Requirements
+
+\* Node 10 or higher
+
+## Usage
+
+The library needs to be configured to your account's API key. Set apiKey to it's value:
+
+```
+const { Client } = require('quotebook-api');
+const client = Client({ apiKey: "api-key122345" });
+
+client
+  .fetchRandom()
+  .then(response => console.log(response.data.quote))
+  .catch(e => console.log(e));
+```
+
+If apiKey is null, then the request will fail. Please use the test apiKey which is api-key122345.
+
+## API Reference
 
 ### Retrieve a random quote
 
