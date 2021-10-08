@@ -13,11 +13,23 @@
     "testEnvironment": "node"
   },
   "author": "quotebook",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "axios": "^0.22.0"
+    "axios": "^0.22.0",
+    "quotebook-api": "github:roygb1v/quotebook-api"
   },
   "devDependencies": {
     "jest": "^27.2.4"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roygb1v/quotebook-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/roygb1v/quotebook-api/issues"
+  },
+  "homepage": "https://github.com/roygb1v/quotebook-api#readme"
 }
