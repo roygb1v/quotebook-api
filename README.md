@@ -26,8 +26,8 @@ yarn add quotebook-api
 
 The library needs to be configured to your account's API key. Set apiKey to it's value:
 
-```
-const { Client } = require('quotebook-api');
+```javascript
+const { Client } = require("quotebook-api");
 const client = Client({ apiKey: "api-key122345" });
 
 client
@@ -42,8 +42,8 @@ If apiKey is null, then the request will fail. Please use the test apiKey which 
 
 ### Retrieve a random quote
 
-```
-const { Client } = require('quotebook-api');
+```javascript
+const { Client } = require("quotebook-api");
 const client = Client({ apiKey: "api-key122345" });
 
 client
@@ -54,8 +54,8 @@ client
 
 ### Retrieve author names - in bulk of 30
 
-```
-const { Client } = require('quotebook-api');
+```javascript
+const { Client } = require("quotebook-api");
 const client = Client({ apiKey: "api-key122345" });
 
 client
@@ -66,24 +66,24 @@ client
 
 ### Retrieve a quote based on author name
 
-```
-const { Client } = require('quotebook-api');
+```javascript
+const { Client } = require("quotebook-api");
 const client = Client({ apiKey: "api-key122345" });
 
 client
-  .fetchByAuthor({q: "Bruce Lee"})
+  .fetchByAuthor({ q: "Bruce Lee" })
   .then(response => console.log(response.data))
   .catch(e => console.log(e));
 ```
 
 ### Retrieve by tag - in bulk of 30
 
-```
-const { Client } = require('quotebook-api');
+```javascript
+const { Client } = require("quotebook-api");
 const client = Client({ apiKey: "api-key122345" });
 
 client
-  .fetchByTag({q: "age"})
+  .fetchByTag({ q: "age" })
   .then(response => console.log(response.data))
   .catch(e => console.log(e));
 ```
