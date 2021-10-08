@@ -99,3 +99,11 @@ client
   .then(response => console.log(response.data))
   .catch(e => console.log(e));
 ```
+
+## Contributions
+
+We are happy to accept any pull requests from individual contributors so long as they have well defined tests.
+
+## Feature Requests
+
+Please reach out to us for any feature requests and we will try to allocate resources for it.
