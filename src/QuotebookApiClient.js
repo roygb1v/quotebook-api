@@ -37,6 +37,9 @@ const Client = (config = {}) => {
     return this.httpClient.get(`author/${q}`);
   };
 
+  this.fetchAllTags = () => {
+    return this.httpClient.get(`tags`);
+  };
   this.fetchByTag = params => {
     if (!params) throw new Error("tag parameter cannot be null");
 

@@ -1,7 +1,13 @@
 const { Client } = require("../src/QuotebookApiClient");
 
+function fail(reason = "fail was called in a test.") {
+  throw new Error(reason);
+}
+
 test("Test health check", () => {
-  const client = Client();
+  const client = Client({
+    apiKey: "api-key122345"
+  });
   return client.healthCheck().then(response => {
     expect(response.data).toBe("API health check is up and running");
   });
@@ -17,15 +23,14 @@ test("Test endpoint with authentication error", () => {
       fail("It should not come here!");
     })
     .catch(error => {
-      console.log("error");
-      if (error.response) {
-        throw new Error("passed with wrong key");
-      }
+      expect(error).toBe(error);
     });
 });
 
 test("Test getting random quotes", () => {
-  const client = Client();
+  const client = Client({
+    apiKey: "api-key122345"
+  });
   return client
     .fetchRandom()
     .then(response => {
@@ -39,7 +44,9 @@ test("Test getting random quotes", () => {
 });
 
 test("Test getting all authors", () => {
-  const client = Client();
+  const client = Client({
+    apiKey: "api-key122345"
+  });
   return client
     .fetchAllAuthors()
     .then(response => {
@@ -53,7 +60,9 @@ test("Test getting all authors", () => {
 });
 
 test("Test getting quotes by author with mock", () => {
-  const client = Client();
+  const client = Client({
+    apiKey: "api-key122345"
+  });
   const author = "Lee_Kuan_Yew";
   return client
     .fetchByAuthor({ q: author })
@@ -67,8 +76,25 @@ test("Test getting quotes by author with mock", () => {
     });
 });
 
+test("Test getting all distinct tags", () => {
+  const client = Client({
+    apiKey: "api-key122345"
+  });
+  return client
+    .fetchAllTags()
+    .then(response => {
+      expect(response.config.method).toBe("get");
+      expect(response.data.length === 117).toBe(true);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+});
+
 test("Test getting quotes by tag with mock", () => {
-  const client = Client();
+  const client = Client({
+    apiKey: "api-key122345"
+  });
   const tag = "age";
   return client
     .fetchByTag({ q: tag })
