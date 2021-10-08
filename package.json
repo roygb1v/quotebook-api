@@ -1,0 +1,23 @@
+{
+  "name": "quotebook-api",
+  "version": "1.0.0",
+  "description": "npm package for quotebook",
+  "main": "src/QuotebookApiClient.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "testMatch": [
+      "**/tests/*Test.js"
+    ],
+    "testEnvironment": "node"
+  },
+  "author": "quotebook",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.22.0"
+  },
+  "devDependencies": {
+    "jest": "^27.2.4"
+  }
+}
