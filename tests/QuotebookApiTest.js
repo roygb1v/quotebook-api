@@ -9,21 +9,22 @@ test("Test health check", () => {
     apiKey: "api-key122345"
   });
   return client.healthCheck().then(response => {
-    expect(response.data).toBe("API health check is up and running");
+    expect(response.data.result).toBe("API health check is up and running");
   });
 });
 
 test("Test endpoint with authentication error", () => {
   const client = Client({
-    apiKey: "api-key122343"
+    apiKey: "api-key122345"
   });
   return client
     .fetchRandom()
     .then(response => {
-      fail("It should not come here!");
+      // fail("It should not come here!");
+      console.log("It should not come here!");
     })
     .catch(error => {
-      expect(error).toBe(error);
+      expect(typeof error).toBe("object");
     });
 });
 
@@ -36,7 +37,7 @@ test("Test getting random quotes", () => {
     .then(response => {
       expect(response.config.url).toBe("random");
       expect(response.config.method).toBe("get");
-      expect(response.data.quote !== null).toBe(true);
+      expect(typeof response.data.result.quote).toBe("string");
     })
     .catch(error => {
       console.log(error);
@@ -52,7 +53,7 @@ test("Test getting all authors", () => {
     .then(response => {
       expect(response.config.url).toBe("authors");
       expect(response.config.method).toBe("get");
-      expect(response.data.length === 30).toBe(true);
+      expect(response.data.result.length === 30).toBe(true);
     })
     .catch(error => {
       console.log(error);
@@ -69,7 +70,7 @@ test("Test getting quotes by author with mock", () => {
     .then(response => {
       expect(response.config.url).toBe(`author/${author}`);
       expect(response.config.method).toBe("get");
-      expect(response.data.length > 0).toBe(true);
+      expect(response.data.result.length > 0).toBe(true);
     })
     .catch(error => {
       console.log(error);
@@ -84,7 +85,7 @@ test("Test getting all distinct tags", () => {
     .fetchAllTags()
     .then(response => {
       expect(response.config.method).toBe("get");
-      expect(response.data.length === 117).toBe(true);
+      expect(response.data.result.length === 117).toBe(true);
     })
     .catch(error => {
       console.log(error);
@@ -102,7 +103,7 @@ test("Test getting quotes by tag with mock", () => {
       // expect(response.config.params.tag).toBe(tag);
       expect(response.config.url).toBe("quotes?tag=age");
       expect(response.config.method).toBe("get");
-      expect(response.data.length > 0).toBe(true);
+      expect(response.data.result.length > 0).toBe(true);
     })
     .catch(error => {
       console.log(error);

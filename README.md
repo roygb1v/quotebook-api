@@ -32,7 +32,7 @@ const client = Client({ apiKey: "api-key122345" });
 
 client
   .fetchRandom()
-  .then(response => console.log(response.data.quote))
+  .then(response => console.log(response.data.result))
   .catch(e => console.log(e));
 ```
 
@@ -48,7 +48,7 @@ const client = Client({ apiKey: "api-key122345" });
 
 client
   .fetchRandom()
-  .then(response => console.log(response.data.quote))
+  .then(response => console.log(response.data.result))
   .catch(e => console.log(e));
 ```
 
@@ -60,7 +60,7 @@ const client = Client({ apiKey: "api-key122345" });
 
 client
   .fetchAllAuthors()
-  .then(response => console.log(response.data))
+  .then(response => console.log(response.data.result))
   .catch(e => console.log(e));
 ```
 
@@ -72,7 +72,7 @@ const client = Client({ apiKey: "api-key122345" });
 
 client
   .fetchByAuthor({ q: "Bruce Lee" })
-  .then(response => console.log(response.data))
+  .then(response => console.log(response.data.result))
   .catch(e => console.log(e));
 ```
 
@@ -84,7 +84,7 @@ const client = Client({ apiKey: "api-key122345" });
 
 client
   .fetchAllTags()
-  .then(response => console.log(response.data))
+  .then(response => console.log(response.data.result))
   .catch(e => console.log(e));
 ```
 
@@ -96,7 +96,7 @@ const client = Client({ apiKey: "api-key122345" });
 
 client
   .fetchByTag({ q: "age" })
-  .then(response => console.log(response.data))
+  .then(response => console.log(response.data.result))
   .catch(e => console.log(e));
 ```
 
