@@ -1,6 +1,6 @@
 {
   "name": "quotebook-api",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "npm package for quotebook",
   "main": "src/QuotebookApiClient.js",
   "scripts": {
