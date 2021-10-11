@@ -34,7 +34,7 @@ const Client = (config = {}) => {
     if (!params) throw new Error("author parameter cannot be null");
 
     const { q } = params;
-    return this.httpClient.get(`author/${q}`);
+    return this.httpClient.get(`author?q=${q}`);
   };
 
   this.fetchAllTags = () => {
@@ -44,7 +44,14 @@ const Client = (config = {}) => {
     if (!params) throw new Error("tag parameter cannot be null");
 
     const { q } = params;
-    return this.httpClient.get(`quotes?tag=${q}`);
+    return this.httpClient.get(`tag?q=${q}`);
+  };
+
+  this.search = params => {
+    if (!params) throw new Error("tag parameter cannot be null");
+
+    const { q } = params;
+    return this.httpClient.get(`search?q=${q}`);
   };
 
   return this;

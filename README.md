@@ -52,6 +52,18 @@ client
   .catch(e => console.log(e));
 ```
 
+### Search for quote
+
+```javascript
+const { Client } = require("quotebook-api");
+const client = Client({ apiKey: "api-key122345" });
+
+client
+  .search({ q: "I can't change the direction of the wind" })
+  .then(response => console.log(response.data.result))
+  .catch(e => console.log(e));
+```
+
 ### Retrieve author names - in bulk of 30
 
 ```javascript

@@ -68,7 +68,7 @@ test("Test getting quotes by author with mock", () => {
   return client
     .fetchByAuthor({ q: author })
     .then(response => {
-      expect(response.config.url).toBe(`author/${author}`);
+      expect(response.config.url).toBe(`author?q=${author}`);
       expect(response.config.method).toBe("get");
       expect(response.data.result.length > 0).toBe(true);
     })
@@ -101,7 +101,25 @@ test("Test getting quotes by tag with mock", () => {
     .fetchByTag({ q: tag })
     .then(response => {
       // expect(response.config.params.tag).toBe(tag);
-      expect(response.config.url).toBe("quotes?tag=age");
+      expect(response.config.url).toBe("tag?q=age");
+      expect(response.config.method).toBe("get");
+      expect(response.data.result.length > 0).toBe(true);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+});
+
+test("Test getting quotes by using search with mock", () => {
+  const client = Client({
+    apiKey: "api-key122345"
+  });
+  const q = "In youth we run into difficulties.";
+  return client
+    .search({ q: q })
+    .then(response => {
+      // expect(response.config.params.tag).toBe(tag);
+      expect(response.config.url).toBe(`search?q=${q}`);
       expect(response.config.method).toBe("get");
       expect(response.data.result.length > 0).toBe(true);
     })
