@@ -1,6 +1,19 @@
 {
   "name": "quotebook-api",
-  "version": "1.0.5",
+  "version": "1.0.7",
+  "keywords": [
+    "quotes",
+    "motivation",
+    "inspiration",
+    "captions",
+    "daily",
+    "random",
+    "funny",
+    "quote of the day",
+    "goodreads",
+    "promise",
+    "async-await"
+  ],
   "description": "npm package for quotebook",
   "main": "src/QuotebookApiClient.js",
   "scripts": {

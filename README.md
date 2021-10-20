@@ -46,10 +46,21 @@ If apiKey is null, then the request will fail. Please use the test apiKey which 
 const { Client } = require("quotebook-api");
 const client = Client({ apiKey: "api-key122345" });
 
+// Promise
 client
   .fetchRandom()
   .then(response => console.log(response.data.result))
   .catch(e => console.log(e));
+
+// Async-Await
+(async () => {
+  try {
+    const response = await client.fetchRandom();
+    return console.log(response.data.result);
+  } catch (e) {
+    return console.log(e);
+  }
+})();
 ```
 
 ### Search for quote
@@ -58,10 +69,23 @@ client
 const { Client } = require("quotebook-api");
 const client = Client({ apiKey: "api-key122345" });
 
+// Promise
 client
   .search({ q: "I can't change the direction of the wind" })
   .then(response => console.log(response.data.result))
   .catch(e => console.log(e));
+
+// Async-Await
+(async () => {
+  try {
+    const response = await client.search({
+      q: "I can't change the direction of the wind"
+    });
+    return console.log(response.data.result);
+  } catch (e) {
+    return console.log(e);
+  }
+})();
 ```
 
 ### Retrieve author names - in bulk of 30
@@ -70,10 +94,21 @@ client
 const { Client } = require("quotebook-api");
 const client = Client({ apiKey: "api-key122345" });
 
+// Promise
 client
   .fetchAllAuthors()
   .then(response => console.log(response.data.result))
   .catch(e => console.log(e));
+
+// Async-Await
+(async () => {
+  try {
+    const response = await client.fetchAllAuthors();
+    return console.log(response.data.result);
+  } catch (e) {
+    return console.log(e);
+  }
+})();
 ```
 
 ### Retrieve a quote based on author name
@@ -82,10 +117,21 @@ client
 const { Client } = require("quotebook-api");
 const client = Client({ apiKey: "api-key122345" });
 
+// Promise
 client
   .fetchByAuthor({ q: "Bruce Lee" })
   .then(response => console.log(response.data.result))
   .catch(e => console.log(e));
+
+// Async-Await
+(async () => {
+  try {
+    const response = await client.fetchByAuthor({ q: "Bruce Lee" });
+    return console.log(response.data.result);
+  } catch (e) {
+    return console.log(e);
+  }
+})();
 ```
 
 ### Retrieve list of all tags - 117 in total
@@ -94,10 +140,21 @@ client
 const { Client } = require("quotebook-api");
 const client = Client({ apiKey: "api-key122345" });
 
+// Promise
 client
   .fetchAllTags()
   .then(response => console.log(response.data.result))
   .catch(e => console.log(e));
+
+// Async-Await
+(async () => {
+  try {
+    const response = await client.fetchAllTags();
+    return console.log(response.data.result);
+  } catch (e) {
+    return console.log(e);
+  }
+})();
 ```
 
 ### Retrieve by tag - in bulk of 30
@@ -106,11 +163,43 @@ client
 const { Client } = require("quotebook-api");
 const client = Client({ apiKey: "api-key122345" });
 
+// Promise
 client
   .fetchByTag({ q: "age" })
   .then(response => console.log(response.data.result))
   .catch(e => console.log(e));
+
+// Async-Await
+(async () => {
+  try {
+    const response = await client.fetchByTag({ q: "age" });
+    return console.log(response.data.result);
+  } catch (e) {
+    return console.log(e);
+  }
+})();
 ```
+
+## Testing
+
+Unit tests are available for each feature:
+
+- GET Health Check
+- GET Authentication error (failed to pass in API key)
+- GET Random Quote
+- GET All Authors
+- GET All Quotes by Author
+- GET List of Tags
+- GET All Quotes by Tag
+- GET Search for similar Quote
+
+```
+npm run test
+```
+
+## Miscellaneous
+
+Each request is limited to 30 quotes. To increase the limit, kindly email helloquotebook@gmail.com!
 
 ## Contributions
 

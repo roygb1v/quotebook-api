@@ -127,3 +127,18 @@ test("Test getting quotes by using search with mock", () => {
       console.log(error);
     });
 });
+
+test("Test with async await for tag", async () => {
+  const client = Client({
+    apiKey: "api-key122345"
+  });
+  const tag = "age";
+  try {
+    const quote = await client.fetchByTag({ q: tag });
+    expect(quote.config.url).toBe("tag?q=age");
+    expect(quote.config.method).toBe("get");
+    expect(quote.data.result.length > 0).toBe(true);
+  } catch (e) {
+    console.log(error);
+  }
+});
